@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admin · Colonia Barbershop</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<div id="loginView" class="login-card">
+  <h1>Admin login</h1>
+  <p class="error-text" id="loginError"></p>
+  <input type="text" id="loginUser" placeholder="Username" autocomplete="username" />
+  <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password" />
+  <button class="btn" id="loginBtn" style="width:100%;">Log in</button>
+</div>
+
+<div id="dashView" class="admin-shell" style="display:none;">
+  <div class="admin-header">
+    <div>
+      <h1>Colonia Barbershop — Admin</h1>
+      <div class="sub">Leads &amp; bookings</div>
+    </div>
+    <button class="btn btn-ghost" id="logoutBtn">Log out</button>
+  </div>
+
+  <div class="stat-grid" id="statGrid"></div>
+
+  <div class="tabs">
+    <button class="tab-btn is-active" data-tab="bookings">Bookings</button>
+    <button class="tab-btn" data-tab="leads">Leads</button>
+  </div>
+
+  <div id="bookingsPanel">
+    <div class="filters">
+      <input type="date" id="filterDate" />
+      <select id="filterStatus">
+        <option value="">All statuses</option>
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+        <option value="no_show">No show</option>
+      </select>
+      <button class="btn btn-ghost" id="clearFilters">Clear</button>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Time</th><th>Customer</th><th>Service</th><th>Barber</th><th>Status</th></tr>
+      </thead>
+      <tbody id="bookingsBody"></tbody>
+    </table>
+  </div>
+
+  <div id="leadsPanel" style="display:none;">
+    <table>
+      <thead>
+        <tr><th>Received</th><th>Name</th><th>Phone</th><th>Email</th><th>Message</th><th>Status</th></tr>
+      </thead>
+      <tbody id="leadsBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
