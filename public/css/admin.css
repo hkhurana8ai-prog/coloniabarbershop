@@ -1,0 +1,169 @@
+/* public/css/admin.css */
+:root {
+  --ink: #1b1a18;
+  --paper: #ece8e0;
+  --brass: #c28d3f;
+  --brass-deep: #9c6f2c;
+  --steel: #46586b;
+  --steel-deep: #313f4d;
+  --line: #d8d2c2;
+  --text: #232120;
+  --text-muted: #6b655c;
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--text);
+}
+.admin-shell { max-width: 1080px; margin: 0 auto; padding: 28px 20px 60px; }
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.admin-header h1 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 26px;
+  margin: 0;
+}
+.admin-header .sub { font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); }
+
+.login-card {
+  max-width: 360px;
+  margin: 80px auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px;
+}
+.login-card h1 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+.login-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14.5px;
+}
+.login-card button {
+  width: 100%;
+}
+.error-text { color: #8c4a36; font-size: 13px; margin: 0 0 10px; min-height: 16px; }
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  border: 1.5px solid var(--ink);
+  background: var(--brass);
+  color: var(--ink);
+  cursor: pointer;
+}
+.btn:hover { background: var(--brass-deep); }
+.btn-ghost { background: transparent; }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+.stat-card .n {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1;
+  color: var(--brass-deep);
+}
+.stat-card .l {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab-btn {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+}
+.tab-btn.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+.filters { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.filters input, .filters select {
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 13.5px;
+  font-family: var(--font-body);
+}
+
+table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+thead th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+}
+tbody td { padding: 12px 14px; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #f7f4ed; }
+
+.status-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.status-pending { background: #fdf0d5; color: #8a5a12; }
+.status-confirmed { background: #dfe9d8; color: #3f6b2a; }
+.status-completed { background: #dbe6ee; color: #2a4a63; }
+.status-cancelled { background: #f0dede; color: #8c3a3a; }
+.status-no_show { background: #e6e2d8; color: #6b655c; }
+.status-new { background: #fdf0d5; color: #8a5a12; }
+.status-contacted { background: #dbe6ee; color: #2a4a63; }
+.status-converted { background: #dfe9d8; color: #3f6b2a; }
+.status-closed { background: #e6e2d8; color: #6b655c; }
+
+select.status-select {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1.5px solid var(--line);
+}
+.empty-row td { text-align: center; color: var(--text-muted); padding: 30px; }
